@@ -1,0 +1,17 @@
+services:
+  aws-glue-local:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aws-glue-local
+    working_dir: /home/hadoop/workspace
+    entrypoint: ["sleep","infinity"]
+    environment:
+      PYTHONPATH: /home/hadoop/workspace/app
+      AWS_PROFILE: ${AWS_PROFILE:-default}
+      AWS_REGION: ${AWS_REGION:-sa-east-1}
+      AWS_DEFAULT_REGION: ${AWS_REGION:-sa-east-1}
+      SPARK_LOCAL_IP: 127.0.0.1
+    volumes:
+      - .:/home/hadoop/workspace
+      - "${USERPROFILE}/.aws:/home/hadoop/.aws:ro"

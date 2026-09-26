@@ -1,0 +1,3 @@
+pyspark
+awsglue-dev
+boto3
