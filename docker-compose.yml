@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
     container_name: aws-glue-local
     working_dir: /home/hadoop/workspace
-    entrypoint: ["sleep","infinity"]
+    entrypoint: ["sleep", "infinity"]
     environment:
       PYTHONPATH: /home/hadoop/workspace/app
       AWS_PROFILE: ${AWS_PROFILE:-default}
@@ -14,4 +14,5 @@ services:
       SPARK_LOCAL_IP: 127.0.0.1
     volumes:
       - .:/home/hadoop/workspace
+      - ./app/local:/home/hadoop/workspace/local
       - "${USERPROFILE}/.aws:/home/hadoop/.aws:ro"

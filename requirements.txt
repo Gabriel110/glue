@@ -1,3 +1,4 @@
 pyspark
 awsglue-dev
 boto3
+pyyaml
